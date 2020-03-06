@@ -20,10 +20,10 @@ $breakpoint-lg: 717px;
   }
 }
 
-@import "css-reset";
+// @import "css-reset";
 @import "colors";
 
-.chart-area {
+.chart-area-spx-march6 {
   @import "type";
   @import "highcharts";
 
@@ -52,9 +52,6 @@ $breakpoint-lg: 717px;
     width: 100%;
     height: 300px;
     margin-top: -10px;
-    @include sm-md-xl {
-      height: 400px;
-    }
   }
 
   & .grow-logo {

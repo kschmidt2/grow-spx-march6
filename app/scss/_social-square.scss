@@ -1,5 +1,5 @@
 .social-square {
-    &.chart-area {
+    &.chart-area-spx-march6 {
         max-width: none;
         width: 1080px;
         height: 1080px;
@@ -74,6 +74,14 @@
         stroke: $slate-secondary-3;
     }
     & .highcharts-tracker-line {
-        stroke-width: 8;
-      }
+        stroke-width: 0;
+    }
+
+    & .highcharts-graph {
+        stroke-width: 6px;
+    }
+    & .highcharts-axis-line, & .highcharts-tick {
+        stroke-width: 4px;
+        stroke: $slate-secondary-6;
+    }
 }

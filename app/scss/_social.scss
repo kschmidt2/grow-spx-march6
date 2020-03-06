@@ -1,5 +1,5 @@
 .social {
-    &.chart-area {
+    &.chart-area-spx-march6 {
         max-width: none;
         width: 1012px;
         height: 506px;
@@ -17,10 +17,10 @@
         display: block;
         margin-left: 40px;
         font-size: 28px;
-        margin-bottom: -46px !important;
+        margin-bottom: 25px !important;
     }
     & .chart-container {
-        min-height: 520px;
+        min-height: 420px;
         margin-left: 40px;
         width: 80%;
     }
@@ -31,7 +31,7 @@
         text-transform: uppercase;
         letter-spacing: normal;
         font-weight: 600;
-        margin-top: -270px;
+        margin-top: -220px;
         margin-right: 50px;
         @include sm-md-xl {
             width: 160px;
@@ -50,6 +50,7 @@
     }
     & .highcharts-grid-line {
         stroke: white;
+        stroke-width: 2px;
     }
     & .highcharts-axis-labels, & .highcharts-legend-item {
         font-weight: 500;
@@ -70,5 +71,12 @@
     & .highcharts-color-1 {
         fill: $slate-secondary-3;
         stroke: $slate-secondary-3;
+    }
+    & .highcharts-graph {
+        stroke-width: 6px;
+    }
+    & .highcharts-axis-line, & .highcharts-tick {
+        stroke-width: 2px;
+        stroke: $slate-secondary-6;
     }
 }

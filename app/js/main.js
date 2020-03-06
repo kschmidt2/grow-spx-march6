@@ -1,12 +1,12 @@
 // adds social class to get social chart
-// let element = document.getElementsByClassName("chart-area");
+// let element = document.getElementsByClassName("chart-area-spx-march6");
 // for(var i = 0; i < element.length; i++)
 // {
 //     element[i].className += " social";
-// }\
+// }
 
 // adds social-square class to get square social chart
-// let element = document.getElementsByClassName("chart-area");
+// let element = document.getElementsByClassName("chart-area-spx-march6");
 // for(var i = 0; i < element.length; i++)
 // {
 //     element[i].className += " social-square";
@@ -27,11 +27,11 @@ Highcharts.setOptions({
     }
 });
 
-let chartId = document.getElementById("chart-container");
+let chartIdSpxMarch6 = document.getElementById("chart-container-spx-march6");
 
 // checks for the chart ID and displays a backup image if the browser can't find it
 setTimeout(function() {
-    if(chartId.innerHTML === "") {
+    if(chartIdSpxMarch6.innerHTML === "") {
         // console.log('noId');
         let chartArea = document.getElementsByClassName("chart-area");
         for(var i = 0; i < chartArea.length; i++) {
@@ -45,9 +45,9 @@ setTimeout(function() {
 },500);
 
 function drawHighcharts() {
-    Highcharts.chart(chartId, {
+    Highcharts.chart(chartIdSpxMarch6, {
         chart: {
-            type: 'bar',
+            type: 'line',
             styledMode: true,
             spacingBottom: 25,
             spacingRight: 100
@@ -56,37 +56,27 @@ function drawHighcharts() {
             text: null
         },
         data: {
-            googleSpreadsheetKey: '1YOKb5l2VM4aAB2r20N_1aT_1vEajYrP3U-U3A6lZbC0'
-        },
-        // for bar charts only
-        plotOptions: {
-            series: {
-                groupPadding: 0.1
-            } 
+            googleSpreadsheetKey: '1-S29jjxO31nZBIEWZsU86R6ldD4bz8hlDM_DGQu6iJ0'
         },
         // for line charts only
-        // plotOptions: {
-        //     series: {
-        //         lineWidth: 1,
-        //         // clip: false,
-        //         marker: {
-        //             enabled: false,
-        //             symbol: 'circle',
-        //             fillColor: '#ffffff',
-        //             states: {
-        //                 hover: {
-        //                     fillColor: '#ffffff'
-        //                 }
-        //             }
-        //         }
-        //     }
-        // },
+        plotOptions: {
+            series: {
+                lineWidth: 1,
+                // clip: false,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    fillColor: '#ffffff',
+                    states: {
+                        hover: {
+                            fillColor: '#ffffff'
+                        }
+                    }
+                }
+            }
+        },
         legend: {
-            align: 'right',
-            symbolRadius: 0,
-            verticalAlign: 'top',
-            x: 10,
-            itemMarginTop: -10
+            enabled: false
         },
         xAxis: {
             labels: {
@@ -94,21 +84,32 @@ function drawHighcharts() {
                     whiteSpace: 'nowrap'
                 }
             },
-            tickLength: 5
+            dateTimeLabelFormats: {
+                week: '%b. %e',
+            },
+            tickLength: 5,
+            tickInterval: 24 * 3600 * 1000 * 7
         },
         yAxis: {
             title: false,
             labels: {
                 useHTML: true,
-                overflow: 'allow'
-            }
+                overflow: 'allow',
+                formatter: function () {
+                    return Highcharts.numberFormat(this.value,0,'.',',');
+                },
+            },
+            max: 3600,
+            min: 2800,
+            tickAmount: 5
         },
         credits: {
             enabled: false
         },
         tooltip: {
             shadow: false,
-            padding: 10
+            padding: 10,
+            valueDecimals: 0
         },
         responsive: {
             rules: [{
